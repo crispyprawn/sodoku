@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#sodoku_board {
+
+    display: flex;
+    flex-direction: row;
+    width: 1240px;
+    height: 720px;
+    border-width: 0px;
+    margin: 0 auto;
+}
+
+.central {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 720px;
+    border-width: 0px;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 360px;
+    border-width: 0px;
+}
+
+.remote {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 360px;
+    border-width: 0px;
+    background-color: rgb(143, 243, 220);
+    font-size: 2em;
+}
+
+.hint {
+    /* ok this is comments */
+    height: 20%;
+    text-align: center;
+    line-height: 72px;
+}
+
+.remoteButton {
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.analysis {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 720px;
+    height: 720px;
+    border-width: 0px;
+}
+
+.checks {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 360px;
+    border-width: 0px;
+    background-color: rgba(255, 215, 0, 0.5);
+    /* opacity: 50%; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 360px;
+    height: 40px;
+}
+
+.colStats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 360px;
+    height: 360px;
+
+    background-color: rgb(63, 160, 128);
+}
+
+.blockStats {
+    display: flex;
+    flex-flow: row wrap;
+    width: 360px;
+    height: 360px;
+
+    background-color: rgb(115, 221, 74);
+}
+
+.rowStats {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 360px;
+
+    background-color: rgb(19, 123, 131);
+}
+
+.rowCheck {
+
+    display: flex;
+    flex-direction: row;
+    width: 360px;
+    height: 40px;
+}
+
+.colCheck {
+
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height: 360px;
+}
+
+.blockCheck {
+    display: flex;
+    flex-flow: row wrap;
+    width: 120px;
+    height: 120px;
+    border: 3px solid tomato;
+    box-sizing: border-box;
+    /* border-collapse: collapse; */
+}
+
+.cellCheckRow {
+    width: 40px;
+    height: 38px;
+    border-width: 1px 0px 1px 0px;
+    border-color: gold;
+    border-style: solid;
+    /* border-collapse: collapse; */
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.5em;
+    color: azure;
+}
+
+.cellCheckCol {
+
+    width: 38px;
+    height: 40px;
+    border-width: 0px 1px 0px 1px;
+    border-color: gold;
+    border-style: solid;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5em;
+    color: azure;
+}
+
+.cellCheckBlock {
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5em;
+    color: azure;
+}
+
+
+.cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.cell:hover {
+    background-color: thistle;
+}
+
+.checks_cell {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border: 1px solid tomato;
+}
+
+input {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 1em;
+}
+
+input:disabled {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 1em;
+    border-width: 0px;
+    color: darkblue;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.peek {
+    width: 160px;
+    height: 80px;
+    border-width: 0px;
+    font-size: 2em;
+    text-align: center;
+    line-height: 80px;
+    background-color: cornsilk;
+    color: purple;
+    border-radius: 40px;
+    transition: all 400ms;
+}
+
+.peek:nth-child(odd) {
+    background-color: pink;
+}
+
+.peek:hover {
+    background-color: rgb(159, 220, 245);
+    color: rgb(100, 98, 223);
+}
+
+@font-face {
+    font-family: 'iconfont';
+    /* Project id 2697342 */
+    src: url('//at.alicdn.com/t/font_2697342_yveooevi2yo.woff2?t=1627099351472') format('woff2'),
+        url('//at.alicdn.com/t/font_2697342_yveooevi2yo.woff?t=1627099351472') format('woff'),
+        url('//at.alicdn.com/t/font_2697342_yveooevi2yo.ttf?t=1627099351472') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    line-height: 90px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.lockIcon {
+    width: 20%;
+}
+
+.remote .lockInfo {
+    width: 50%;
+    font-size: 30px;
+    text-align: center;
+}
+
+.problemLock {
+    font-size: 60px;
+}
+
+.problemUnlock {
+    font-size: 60px;
+}
+
+.draftErase {
+    font-size: 45px;
+}
+
+.allErase {
+    font-size: 45px;
+}
+
+.remote:nth-child(n+2):hover {
+    cursor: pointer;
+}
+
+#sodoku_board .hintPanel {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    
+    transition: background-color 0.5s ease-out;
+    visibility: hidden;
+}
+
+#sodoku_board .cell:hover .hintPanel {
+    display: block;
+    position: absolute;
+    visibility: visible;
+    background-color: #f45;
+    top: 40px;
+    left: 0px;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+#sodoku_board .cell:hover .hintPanel:hover {
+    background-color: green;
+    display: inline-block;
+    white-space: nowrap;
+}
